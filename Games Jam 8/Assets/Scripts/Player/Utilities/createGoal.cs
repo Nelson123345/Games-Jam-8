@@ -7,7 +7,6 @@ public class createGoal : MonoBehaviour
 	public List<GameObject> collectibleObjects;
 	public List<string> collectibleNames;
 	public List<GameObject> item;
-	public List<item> items;
 
 	private void Start()
 	{
