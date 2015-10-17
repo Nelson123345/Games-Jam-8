@@ -7,24 +7,26 @@ public class ObjectChanger : MonoBehaviour
 	public GameObject[] objectPrefabs;
 	public string objectTag;
 
-	private GameObject[] getObjectsInScene()
+	public GameObject[] getObjectsInScene()
 	{
-		return GameObject.FindGameObjectsWithTag("objectTag");
+		return GameObject.FindGameObjectsWithTag(objectTag);
+	}
+
+	private void Start()
+	{
+		chooseMeshes();
 	}
 
 	private void changeMesh(GameObject changer, GameObject swapper)
 	{
-		objectsInScene[p].GetComponent<MeshFilter>().mesh = 
+		changer.GetComponent<MeshFilter>().mesh = swapper.GetComponent<MeshFilter>().sharedMesh;
 	}
 
 	private void chooseMeshes()
 	{
 		//Creating two Local Lists to cycle through the objects
 
-		//prefabObjects will store then remove the first object until it is gone
 		List<GameObject> prefabObjects = new List<GameObject>();
-
-		//sortObjects will get a
 		List<GameObject> sortObjects = new List<GameObject>();
 
 		prefabObjects.AddRange(objectPrefabs);
@@ -47,66 +49,9 @@ public class ObjectChanger : MonoBehaviour
 			{
 				if(objectsInScene[p].name == changingObject.name)
 				{
-
+					changeMesh(objectsInScene[p], newObject);
 				}
 			}
 		}
 	}
-
-/*
- 	public GameObject[] objectInspector;
-	public GameObject[] objectInScene;
-	public List<GameObject> objectPrefabs, objectSelection;
-	public string tag;//can be changed to objectName
-*/
-
-
-/*	private void Start()
-	{
-		getModelInScene();
-		getModelInspector();
-	}
-
-	private void getModelInScene()
-	{
-		objectSelection.AddRange(GameObject.FindGameObjectsWithTag(name));
-	}
-
-	
-	private void getModelInspector()
-	{
-		for(int i=0; i < objectInspector.Length; i++)
-		{
-			objectPrefabs.Add (objectInspector[i].gameObject as GameObject);
-		}
-	}
-
-	private void selectRandomGameObject()
-	{
-		getRenderer(objectPrefabs[randomPoint(objectPrefabs.Count)]).material = getRenderer(objectSelection[randomPoint(objectSelection.Count)]).material;
-	}
-
-	private Renderer getRenderer(GameObject savedObject)
-	{
-		Renderer savedRender = savedObject.GetComponent<Renderer>();
-		return savedRender;
-	}
-
-	private int randomPoint(int lengthOfArray)
-	{
-		int randomPoints = Random.Range (0, lengthOfArray);
-		return randomPoints;
-	}*/
 }
-
-/*
-	Set objectPrefabs to objectInspector
-	Set ObjectSelection to objectInspector
-	Find all objects with collectibleObject tag and store them in the objectInScene array
-	Select the value from the top of the objectPrefabs list and select a random value from objectSelection
-	
- */
-
-
-
-

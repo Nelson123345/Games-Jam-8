@@ -2,30 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class createGoal : MonoBehaviour
+public class CreateGoal : MonoBehaviour
 {
-	public List<GameObject> collectibleObjects;
-	//public GameObject[] collectibleObjects;
-	public List<string> collectibleNames;
-	public List<GameObject> item;
+	public ObjectChanger objectChanger;
 
-	private void Start()
+	public string assignTarget()
 	{
-		findAllCollectibleObject();
-		sortAllCollectibleObjects();
-	}
+		GameObject[] objectsInScene = objectChanger.getObjectsInScene();
 
-	private void findAllCollectibleObject()
-	{
-		collectibleObjects.AddRange(GameObject.FindGameObjectsWithTag("CollectibleItem"));
-		//collectibleObjects.Add = GameObject.FindGameObjectsWithTag("CollectibleItem");
-	}
+		int i = Random.Range(0, objectsInScene.Length);
 
-	private void sortAllCollectibleObjects()
-	{
-		for(int i = 0; i < collectibleObjects.Count; i++)
-		{
-			
-		}
+		return objectsInScene[i].name; 
 	}
 }
