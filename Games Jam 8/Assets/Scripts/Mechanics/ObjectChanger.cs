@@ -17,6 +17,14 @@ public class ObjectChanger : MonoBehaviour
 		chooseMeshes();
 	}
 
+	private void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.Space))
+		{
+			chooseMeshes();
+		}
+	}
+
 	private void changeMesh(GameObject changer, GameObject swapper)
 	{
 		changer.GetComponent<MeshFilter>().mesh = swapper.GetComponent<MeshFilter>().sharedMesh;
