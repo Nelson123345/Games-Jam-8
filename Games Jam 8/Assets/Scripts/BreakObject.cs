@@ -44,6 +44,7 @@ public class BreakObject : MonoBehaviour
 				setMaterialForTransformArray(fragments, gameObjectToBreak.GetComponent<Renderer>().material);
 			}
 			Destroy(gameObjectToBreak);
+			Destroy(this);
 		}
 	}
 
