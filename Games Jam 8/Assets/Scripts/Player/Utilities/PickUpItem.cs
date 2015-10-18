@@ -10,7 +10,7 @@ public class PickUpItem : MonoBehaviour
 
 	private void Start()
 	{
-		target = createGoal.assignTarget();
+		//target = createGoal.assignTarget();
 		Cursor.lockState = CursorLockMode.Locked;
 		//Cursor.visible(false);
 		//Cursor.visible = true;
