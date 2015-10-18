@@ -5,11 +5,17 @@ public class EndCondition : MonoBehaviour {
 
 	public float timer;
 	public GameObject canvas;
+	public Text timerText;
 
 
 	private void Start()
 	{
 		StartCoroutine(gameTimer());
+	}
+
+	private void Update()
+	{
+		timerText.text = "Bus in " + timer;
 	}
 
 
