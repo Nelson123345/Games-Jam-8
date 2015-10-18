@@ -27,7 +27,10 @@ public class ObjectChanger : MonoBehaviour
 
 	private void changeMesh(GameObject changer, GameObject swapper)
 	{
-		changer.GetComponent<MeshFilter>().mesh = swapper.GetComponent<MeshFilter>().sharedMesh;
+		//changer.GetComponent<MeshFilter>().mesh = swapper.GetComponent<MeshFilter>().sharedMesh;
+		GameObject newSwapper = GameObject.Instantiate(swapper, changer.transform.position, swapper.transform.rotation) as GameObject;
+		newSwapper.name = changer.name;
+		Destroy(changer);
 	}
 
 	private void chooseMeshes()
