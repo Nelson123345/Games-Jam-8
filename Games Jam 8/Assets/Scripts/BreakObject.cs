@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BreakObject : MonoBehaviour
 {
-	public Rigidbody gameObjectRigidBody;
+/*	public Rigidbody gameObjectRigidBody;
 	private Vector3 lastVelocity;
 	public GameObject gameObjectToBreak;
 	public GameObject brokenVersion;
@@ -22,7 +22,7 @@ public class BreakObject : MonoBehaviour
 
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
-			fractureObject();
+			//fractureObject();
 		}
 	}
 
@@ -57,7 +57,7 @@ public class BreakObject : MonoBehaviour
 				Renderer fragmentRenderer = array[i].gameObject.GetComponent<Renderer>();
 				fragmentRenderer.material = mat;
 /*				array[i].GetComponent<Rigidbody>().AddForce(lastVelocity * fractureAmplification, ForceMode.Impulse);
-*/			}
+*//*			}
 		}
 	}
 
@@ -69,7 +69,7 @@ public class BreakObject : MonoBehaviour
 
 		if(totalforce > maxForce)
 		{
-			fractureObject();
+			//fractureObject();
 		}
 	}
 
@@ -91,5 +91,5 @@ public class BreakObject : MonoBehaviour
 			//print("Last Velocity: " + lastVelocity);
 			checkForFracture(lastVelocity, maxForce);
 		}
-	}
+	}*/
 }

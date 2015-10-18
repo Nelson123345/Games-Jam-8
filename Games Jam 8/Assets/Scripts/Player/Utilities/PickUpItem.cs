@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PickUpItem : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class PickUpItem : MonoBehaviour
 	public CreateGoal createGoal;
 	public LayerMask rayHitLayer;
 	public PickedUpItems pickedUpItems;
+
+	public Text targetText;
 
 	private void Start()
 	{
@@ -20,8 +23,11 @@ public class PickUpItem : MonoBehaviour
 	{
 		if(Input.GetMouseButtonDown(0))
 		{
-			castRay(2f);
+			castRay(5f);
 		}
+
+		targetText.text = "Hey m8, forgot my " + target + " Can you go grab it for me";
+
 	}
 	
 	private void castRay(float length)
@@ -35,7 +41,7 @@ public class PickUpItem : MonoBehaviour
 
 	public void onRaycastHit(Collider collidedObject)
 	{
-		if(collidedObject.gameObject.name == target && collidedObject.gameObject.tag == "CollectibleItem")
+		if(collidedObject.gameObject.name == target)
 		{
 			Destroy(collidedObject.gameObject);
 			target = createGoal.assignTarget();
